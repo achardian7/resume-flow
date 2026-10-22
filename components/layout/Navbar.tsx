@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   FolderSync,
 } from 'lucide-react';
+import Link from 'next/link';
 import { ResumeData } from '@/types/resume';
 import { AtsAuditResult } from '@/utils/atsChecker';
 import { PdfDownloadButton } from '@/components/pdf/PdfDownloadButton';
@@ -34,19 +35,28 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         {/* Brand */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-sky-400 flex items-center justify-center text-white shadow-md shadow-indigo-500/20">
-            <FileText className="w-5 h-5" />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-base font-bold text-zinc-900 dark:text-zinc-100 tracking-tight leading-none">
-                Resume Flow
-              </h1>
+          <Link
+            href="/"
+            className="flex items-center gap-3 group transition-opacity hover:opacity-90"
+            title="Kembali ke Beranda"
+          >
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-sky-400 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+              <FileText className="w-5 h-5" />
             </div>
-            <p className="text-[11px] text-zinc-500 dark:text-zinc-400 hidden sm:block">
-              100% Machine-Readable & Standard ATS Format
-            </p>
-          </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h1 className="text-base font-bold text-zinc-900 dark:text-zinc-100 tracking-tight leading-none">
+                  Resume Flow
+                </h1>
+                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-semibold border border-indigo-200/60 dark:border-indigo-800/60">
+                  Builder
+                </span>
+              </div>
+              <p className="text-[11px] text-zinc-500 dark:text-zinc-400 hidden sm:block">
+                100% Machine-Readable & Standard ATS Format
+              </p>
+            </div>
+          </Link>
         </div>
 
         {/* Center / Stats: ATS Score Meter */}
